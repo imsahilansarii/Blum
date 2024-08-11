@@ -1,4 +1,4 @@
-// ==/UserScript==
+// ==UserScript==
 // @name         Blum Autoclicker
 // @version      1.3
 // @namespace    Violentmonkey Scripts
