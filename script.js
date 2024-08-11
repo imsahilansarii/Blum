@@ -1,14 +1,14 @@
 
 // ==UserScript==
 // @name         Blum Autoclicker New
-// @version      1.7
+// @version      1.0
 // @namespace    Violentmonkey Scripts
-// @author       mudachyo
+// @author       Sahil
 // @match        https://telegram.blum.codes/*
 // @grant        none
 // @icon         https://cdn.prod.website-files.com/65b6a1a4a0e2af577bccce96/65ba99c1616e21b24009b86c_blum-256.png
-// @downloadURL  https://github.com/mudachyo/Blum/raw/main/blum-autoclicker.user.js
-// @updateURL    https://github.com/mudachyo/Blum/raw/main/blum-autoclicker.user.js
+// @downloadURL  https://raw.githubusercontent.com/imsahilansarii/Blum/main/script.js
+// @updateURL    https://raw.githubusercontent.com/imsahilansarii/Blum/main/script.js
 // @homepage     https://github.com/imsahilansarii/Blum
 // ==/UserScript==
 
@@ -209,7 +209,7 @@ try {
   igButton.target = '_blank';
   igButton.className = 'social-button';
   igButton.innerHTML = '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAwFJREFUOE+l09trm3Ucx/H3kydP0vbpmjUHD4zaunZFtlEvhDmnKFVBmbg5pGPzQDPn0uF0B7HgmIzOwXbhCfE8i10HgiTzRrzQGxXnPIyqW3GgbhKY4GxMkzQ2h+f5nSQJ7h/YD36Xn9f39+PLx+Iqj/V/fob3nML1/27XKnirsUKuUW0owgjVjlQuSnfiabciVeR75fV9MIYlGtkmMHNLyqnlIl8aY9+uTRBtQijdhtLtKN2B1C5CdSL0EoTqwldd3yhv+d0NpAX0JXdqi3eMsQn3LiPx6DABtwOtbQwOWgcRixYXJi9TumjjqwhSR8aeqC8/1gRm+9dPEQgkQ709XLvvcS69+CH1OR/ZmK7c5mQ7dh2Dh4f55fAfFC44eGrp8WR1aFsT+H312rTRjCTG95CfPImXqyJxaRu6GWV1UPghz8rpJ5nde4obUms4eyCLUN2ZrYvrNjeBP+9cnUYx0r3/CLmDE0gvROLQQSrnL2FoJ7xqkF+f/QRfRLjptU3MPHUOX0Yzm8v3toD5DX1pY6wRd/fLFI8ewB5cQ6B3FfnpTxEqQndyC6WZOebPFFnx6lZ+3nUGT0UzDxc3toDqaKIJhLa/weLr43DjOqyeIeanP8avuXQ98hgLP16m8FOJ/leSnH36NJ6MZh4qbGkBYmd3WmtG7NG38Y/tRtTDhMfepHbuPEp2YA+sJPvcJL6M0ffSDmaf+QpPxTMP5kdbgN7npo2yRthwBPXZW8j8PKLWhuq5C7/sUDp9Ed9fio4NEE9u5LdD3+HJRGb9PztagBkPTWECSaIDmPsmkB+9gMgVqJfaqZdcakUX2dXPNc/vIXv0c8pZi6qMH38gt6u1RrPfGcNY76IsTGQFZm0KE4yghI30gijPQSxI/j5xinJW4ck4dRlL3T+39/0WkMIhbn+Bsu9ABpoBWXcQlTDVokut0EmtvKTxbOoi3rhfm79C9wwzIa+UqYlEnW0I+zYlgq6shRCVUDNcbXxjIYLnxys1Hfu2nl021QhfKdPVNPo/dxl0IKKO3KcAAAAASUVORK5CYII=">Instagram';
-  socialButtons.appendChild(githubButton);
+  socialButtons.appendChild(igButton);
 
   const telegramButton = document.createElement('a');
   telegramButton.href = 'https://t.me/airdrop_hunts7';
