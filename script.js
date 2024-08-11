@@ -1,6 +1,6 @@
 // ==/UserScript==
 // @name         Blum Autoclicker
-// @version      1.7
+// @version      1.3
 // @namespace    Violentmonkey Scripts
 // @author       imsahilansarii
 // @match        https://telegram.blum.codes/*
@@ -10,7 +10,7 @@
 // @updateURL    https://raw.githubusercontent.com/imsahilansarii/Blum/main/script.js
 // @homepage     https://github.com/imsahilansarii/Blum
 // ==/UserScript==
-et GAME_SETTINGS = {
+let GAME_SETTINGS = {
     minBombHits: Math.floor(Math.random() * 2),
     minIceHits: Math.floor(Math.random() * 2) + 2,
     flowerSkipPercentage: Math.floor(Math.random() * 11) + 15,
