@@ -10,6 +10,7 @@
 // @updateURL    https://raw.githubusercontent.com/imsahilansarii/Blum/main/script.js
 // @homepage     https://github.com/imsahilansarii/Blum
 // ==/UserScript==
+
 let GAME_SETTINGS = {
     minBombHits: Math.floor(Math.random() * 2),
     minIceHits: Math.floor(Math.random() * 2) + 2,
