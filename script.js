@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         Blum Autoclicker
-// @version      1.4
+// @version      1.9
 // @namespace    Violentmonkey Scripts
-// @author       Sahil
+// @author       GodKnows
 // @match        https://telegram.blum.codes/*
 // @grant        none
 // @icon         https://cdn.prod.website-files.com/65b6a1a4a0e2af577bccce96/65ba99c1616e21b24009b86c_blum-256.png
-// @downloadURL  https://raw.githubusercontent.com/imsahilansarii/Blum/main/script.js
-// @updateURL    https://raw.githubusercontent.com/imsahilansarii/Blum/main/script.js
+// @downloadURL  https://github.com/imsahilansarii/Blum/raw/main/script.js
+// @updateURL    https://github.com/imsahilansarii/Blum/raw/main/script.js
 // @homepage     https://github.com/imsahilansarii/Blum
 // ==/UserScript==
 
@@ -17,7 +17,7 @@ let GAME_SETTINGS = {
     flowerSkipPercentage: Math.floor(Math.random() * 11) + 15,
     minDelayMs: 2000,
     maxDelayMs: 5000,
-    autoClickPlay: true
+    autoClickPlay: false
 };
 
 let isGamePaused = false;
@@ -109,18 +109,18 @@ try {
         return Math.floor(Math.random() * (GAME_SETTINGS.maxDelayMs - GAME_SETTINGS.minDelayMs + 1) + GAME_SETTINGS.minDelayMs);
     }
 
-	function checkAndClickPlayButton() {
-		const playButtons = document.querySelectorAll('button.kit-button.is-large.is-primary');
-		
-		playButtons.forEach(button => {
-			if (!isGamePaused && GAME_SETTINGS.autoClickPlay && /Play/.test(button.textContent)) {
-				setTimeout(() => {
-					button.click();
-					gameStats.isGameOver = false;
-				}, getNewGameDelay());
-			}
-		});
-	}
+  function checkAndClickPlayButton() {
+    const playButtons = document.querySelectorAll('button.kit-button.is-large.is-primary, a.play-btn[href="/game"]');
+
+    playButtons.forEach(button => {
+        if (!isGamePaused && GAME_SETTINGS.autoClickPlay && /Play/.test(button.textContent)) {
+            setTimeout(() => {
+                button.click();
+                gameStats.isGameOver = false;
+            }, getNewGameDelay());
+        }
+    });
+}
 
 
     function continuousPlayButtonCheck() {
@@ -178,7 +178,7 @@ try {
   settingsMenu.appendChild(createSettingElement('Flower Skip (%)', 'flowerSkipPercentage', 'range', 0, 100, 1,
     'EN: Percentage probability of skipping a flower.<br>' +
     'RU: Вероятность пропуска цветка в процентах.'));
-  settingsMenu.appendChild(createSettingElement('Min Freeze Hits', 'minIceHits', 'range', 1, 10, 1,
+  settingsMenu.appendChild(createSettingElement('Min Freeze Hits', 'minIceHits', 'range', 0, 10, 1,
     'EN: Minimum number of clicks per freeze.<br>' +
     'RU: Минимальное количество кликов на заморозку.'));
   settingsMenu.appendChild(createSettingElement('Min Bomb Hits', 'minBombHits', 'range', 0, 10, 1,
@@ -345,7 +345,7 @@ try {
     .social-buttons {
       margin-top: 15px;
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       white-space: nowrap;
     }
     .social-button {
