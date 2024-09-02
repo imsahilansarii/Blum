@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Blum Autoclicker
-// @version      1.9
+// @version      1.9.1
 // @namespace    Violentmonkey Scripts
 // @author       GodKnows
 // @match        https://telegram.blum.codes/*
