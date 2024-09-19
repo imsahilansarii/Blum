@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Blum Autoclicker
-// @version      2.0
+// @version      2.2
 // @namespace    Violentmonkey Scripts
 // @author       GodKnows
 // @match        https://telegram.blum.codes/*
@@ -110,10 +110,10 @@ try {
     }
 
   function checkAndClickPlayButton() {
-    const playButtons = document.querySelectorAll('button.kit-button.is-large.is-primary, a.play-btn[href="/game"]');
+    const playButtons = document.querySelectorAll('button.kit-button.is-large.is-primary, a.play-btn[href="/game"], button.kit-button.is-large.is-primary');
 
     playButtons.forEach(button => {
-        if (!isGamePaused && GAME_SETTINGS.autoClickPlay && /Play/.test(button.textContent)) {
+        if (!isGamePaused && GAME_SETTINGS.autoClickPlay && (/Play/.test(button.textContent) || /Continue/.test(button.textContent))) {
             setTimeout(() => {
                 button.click();
                 gameStats.isGameOver = false;
@@ -175,13 +175,13 @@ try {
     document.getElementById('autoClickPlay').checked = GAME_SETTINGS.autoClickPlay;
   }
 
-  settingsMenu.appendChild(createSettingElement('Flower Skip (%)', 'flowerSkipPercentage', 'range', 0, 100, 10,
+  settingsMenu.appendChild(createSettingElement('Flower Skip (%)', 'flowerSkipPercentage', 'range', 0, 100, 1,
     'EN: Percentage probability of skipping a flower.<br>' +
     'RU: Вероятность пропуска цветка в процентах.'));
-  settingsMenu.appendChild(createSettingElement('Min Freeze Hits', 'minIceHits', 'range', 0, 10, 0,
+  settingsMenu.appendChild(createSettingElement('Min Freeze Hits', 'minIceHits', 'range', 1, 10, 1,
     'EN: Minimum number of clicks per freeze.<br>' +
     'RU: Минимальное количество кликов на заморозку.'));
-  settingsMenu.appendChild(createSettingElement('Min Bomb Hits', 'minBombHits', 'range', 0, 10, 0,
+  settingsMenu.appendChild(createSettingElement('Min Bomb Hits', 'minBombHits', 'range', 0, 10, 1,
     'EN: Minimum number of clicks per bomb.<br>' +
     'RU: Минимальное количество кликов на бомбу.'));
   settingsMenu.appendChild(createSettingElement('Min Delay (ms)', 'minDelayMs', 'range', 10, 10000, 10,
@@ -410,6 +410,23 @@ try {
 
     const inputContainer = document.createElement('div');
     inputContainer.className = 'setting-input';
+
+    function AutoClaimAndStart() {
+      setInterval(() => {
+        const claimButton = document.querySelector('button.kit-button.is-large.is-drop.is-fill.button.is-done');
+        const startFarmingButton = document.querySelector('button.kit-button.is-large.is-primary.is-fill.button');
+        const continueButton = document.querySelector('button.kit-button.is-large.is-primary.is-fill.btn');
+        if (claimButton) {
+          claimButton.click();
+        } else if (startFarmingButton) {
+          startFarmingButton.click();
+        } else if (continueButton) {
+          continueButton.click();
+        }
+      }, Math.floor(Math.random() * 5000) + 5000);
+    }
+
+    AutoClaimAndStart();
 
     let input;
     if (type === 'checkbox') {
