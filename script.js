@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Blum Autoclicker
-// @version      2.3
+// @version      2.4
 // @namespace    Violentmonkey Scripts
 // @author       GodKnows
 // @match        https://telegram.blum.codes/*
@@ -17,7 +17,7 @@ let GAME_SETTINGS = {
 	flowerSkipPercentage: Math.floor(Math.random() * 11) + 15,
 	minDelayMs: 500,
 	maxDelayMs: 999,
-	autoClickPlay: false,
+	autoClickPlay: true,
 	dogsProbability: (98 + Math.random()) / 100
 };
 
@@ -215,13 +215,13 @@ try {
 		document.getElementById('autoClickPlay').checked = GAME_SETTINGS.autoClickPlay;
 	}
 
-	settingsMenu.appendChild(createSettingElement('Flower Skip (%)', 'flowerSkipPercentage', 'range', 0, 100, 1,
+	settingsMenu.appendChild(createSettingElement('Flower Skip (%)', 'flowerSkipPercentage', 'range', 0, 100, 2,
 		'EN: Percentage probability of skipping a flower.<br>' +
 		'RU: Вероятность пропуска цветка в процентах.'));
-	settingsMenu.appendChild(createSettingElement('Min Freeze Hits', 'minIceHits', 'range', 1, 10, 1,
+	settingsMenu.appendChild(createSettingElement('Min Freeze Hits', 'minIceHits', 'range', 0, 10, 1,
 		'EN: Minimum number of clicks per freeze.<br>' +
 		'RU: Минимальное количество кликов на заморозку.'));
-	settingsMenu.appendChild(createSettingElement('Min Bomb Hits', 'minBombHits', 'range', 0, 10, 1,
+	settingsMenu.appendChild(createSettingElement('Min Bomb Hits', 'minBombHits', 'range', 0, 20, 15,
 		'EN: Minimum number of clicks per bomb.<br>' +
 		'RU: Минимальное количество кликов на бомбу.'));
 	settingsMenu.appendChild(createSettingElement('Min Delay (ms)', 'minDelayMs', 'range', 10, 10000, 10,
