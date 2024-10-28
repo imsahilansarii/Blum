@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Blum Autoclicker
-// @version      2.4
+// @version      2.4.1
 // @namespace    Violentmonkey Scripts
 // @author       GodKnows
 // @match        https://telegram.blum.codes/*
@@ -221,7 +221,7 @@ try {
 	settingsMenu.appendChild(createSettingElement('Min Freeze Hits', 'minIceHits', 'range', 0, 10, 1,
 		'EN: Minimum number of clicks per freeze.<br>' +
 		'RU: Минимальное количество кликов на заморозку.'));
-	settingsMenu.appendChild(createSettingElement('Min Bomb Hits', 'minBombHits', 'range', 0, 20, 15,
+	settingsMenu.appendChild(createSettingElement('Min Bomb Hits', 'minBombHits', 'range', 0, 20, 20,
 		'EN: Minimum number of clicks per bomb.<br>' +
 		'RU: Минимальное количество кликов на бомбу.'));
 	settingsMenu.appendChild(createSettingElement('Min Delay (ms)', 'minDelayMs', 'range', 10, 10000, 10,
